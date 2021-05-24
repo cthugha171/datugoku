@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &7203189610161067664
+--- !u!95 &8098607447883889783
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3209114, y: 0.7994299, z: 1}
-  m_Center: {x: -0.1604557, y: 0.47295284, z: 0}
+  m_Size: {x: 1.188871, y: 0.57678986, z: 1}
+  m_Center: {x: -0.09443568, y: 0.44710016, z: 0}
 --- !u!1001 &4127391294942369484
 PrefabInstance:
   m_ObjectHideFlags: 0
