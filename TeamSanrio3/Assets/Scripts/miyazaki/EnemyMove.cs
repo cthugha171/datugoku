@@ -10,7 +10,11 @@ public class EnemyMove : MonoBehaviour
     public GameObject onTargetUI;
     private int count = 0;
     private bool isStop = true;
-    private float time ;
+    [SerializeField]
+    private float countTime;
+    private float time;
+    [SerializeField]
+    private float Interval;
     PlayerCon playerCon;
     Vector2 rot;
     private Vector3 velocity;
@@ -26,7 +30,6 @@ public class EnemyMove : MonoBehaviour
     private int currentPoint = 0;
     bool OnTarget = false;
     bool TargetOFF = true;
-    bool suro = false;
     bool onSound = false;
     public bool Anime = false;
     public bool isFound = false;
@@ -47,12 +50,12 @@ public class EnemyMove : MonoBehaviour
         {
             return;
         }
+        Move();
         if (playerCon.IsDeadFlag)
         {
             TargetOFF = false;
             OnTarget = false;
         }
-        Move();
     }
     public void Move()
     {
@@ -64,9 +67,6 @@ public class EnemyMove : MonoBehaviour
 
         float vx = 0f;
         float vy = 0f;
-
-        
-
 
         if (TargetOFF)
         {
@@ -107,7 +107,7 @@ public class EnemyMove : MonoBehaviour
 
         if (OnTarget)
         {
-            
+
             count++;
             // 減算した結果がマイナスであればXは減算処理
             if (p_vX < 0)
@@ -134,41 +134,23 @@ public class EnemyMove : MonoBehaviour
             // 代入し直す
             transform.localScale = scale;
             // CubeプレハブをGameObject型で取得
-            time += Time.deltaTime;
-            if (time > 7.0f)
+            countTime += Time.deltaTime;
+            if (countTime>=Interval)
             {
-                Debug.Log(time);
+                Debug.Log("時間"+countTime);
+                countTime = 0.0f;
                 //増援処理
                 for (int i = 0; i < instantiate.Length; i++)
                 {
                     Instantiate(enemy2, new Vector3(instantiate[i].position.x, instantiate[i].position.y, instantiate[i].position.z), Quaternion.identity);
+                    Debug.Log("いぬ");
                 }
-                time = 0.0f;
-            }
-            if (count > 300)
-            {
-                Debug.Log("3秒経過");
-                OnTarget = false;
-                TargetOFF = true;
-                onTargetUI.SetActive(false);
-                count = 0;
-            }
+            }   
             
+
         }
 
-        //if (JumpOn)
-        //{
-        //Vector3 force = new Vector3(0, JumpPowar, 0);
-        //this.rb.AddForce(force, ForceMode.Force);
-        //count++;
-        //if (count>60)
-        //{         
-        //    JumpOn = false;
-        //    TargetOFF = true;
-        //    count =0;
-        //}
-        //}
-       
+
     }
     void OnWillRenderObject()
 
@@ -177,7 +159,6 @@ public class EnemyMove : MonoBehaviour
 #if UNITY_EDITOR
         time += Time.deltaTime;
         if (Camera.current.name != "SceneCamera" && Camera.current.name != "Preview Camera")
-
 #endif
 
         {
@@ -213,6 +194,10 @@ public class EnemyMove : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             onSound = false;
+            OnTarget = false;
+            TargetOFF = true;
+            onTargetUI.SetActive(false);
+            count = 0;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -222,12 +207,5 @@ public class EnemyMove : MonoBehaviour
             playerCon.IsDeadFlag = true;
             Debug.Log(playerCon.IsDeadFlag);
         }
-        if (collision.gameObject.tag == "ElectricFloor")
-        {
-            suro = true;
-            OnTarget = false;
-            Debug.Log(suro);
-        }
-
     }
 }
