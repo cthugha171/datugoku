@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChainCon : MonoBehaviour
 {
     public float angle = 0.0f;
-    Vector3 scale = new Vector3(20.0f, 100.0f, 20.0f);
+    Vector3 scale = new Vector3(20f, 100.0f, 20f);
     public Vector3 angles = new Vector3(0.0f, 0.0f, 0.0f);
     Vector3 direction;
     Vector3 targetpos;
@@ -46,7 +46,7 @@ public class ChainCon : MonoBehaviour
             return;
         }
         MouseUpdata();
-       // ConUpdata();
+        // ConUpdata();
     }
 
     private void MouseUpdata()
@@ -65,7 +65,7 @@ public class ChainCon : MonoBehaviour
             // マウスカーソルが存在する方向の角度を取得する
             angle = GetAim(Vector3.zero, direction);
 
-            
+
             play++;
         }
         if (Input.GetButtonDown("Action") && hitflag == false)
@@ -78,10 +78,11 @@ public class ChainCon : MonoBehaviour
             play++;
         }
         //左クリックを押し続けた時の角度取得と鎖伸ばし
-        if (Input.GetMouseButton(0) && hitflag == false &&playerCon.jump == true
+        if (Input.GetMouseButton(0) && hitflag == false && playerCon.jump == true
         || Input.GetButton("Action") && hitflag == false && playerCon.jump == true
         || Input.GetMouseButton(0) && hitflag == false && playerCon.jump == false && playerCon.angles.z == 0
-        || Input.GetButton("Action") && hitflag == false && playerCon.jump == false && playerCon.angles.z == 0)
+        || Input.GetButton("Action") && hitflag == false && playerCon.jump == false && playerCon.angles.z == 0
+        )
         {
             // プレイヤーがマウスカーソルの方向を見るようにする
             angles = tr.localEulerAngles;
@@ -90,7 +91,9 @@ public class ChainCon : MonoBehaviour
             tr.localScale = scale;
             scale.y += 1.5f;
             click = true;
-            
+
+
+
             if (time > 0.5f)
             {
                 soundManager.PlaySeByName("手錠を伸ばす");
@@ -115,8 +118,8 @@ public class ChainCon : MonoBehaviour
             soundManager.PlaySeByName("手錠がひっかる音");
         }
         //鎖が当たってないときに鎖の角度と伸縮をリセット
-        if (Input.GetMouseButtonUp(0) && hitflag == false  ||Input.GetButtonUp("Action") && hitflag == false
-            ||hitflag == false && blockhit == true || hitflag == false && scale.y > 50.0f)
+        if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false
+            || hitflag == false && blockhit == true || hitflag == false && scale.y > 50.0f)
         {
             scale.y = 0.0f;
             tr.localScale = scale;
@@ -125,7 +128,7 @@ public class ChainCon : MonoBehaviour
             angles.y = 0.0f;
             angles.z = 0.0f;
             tr.localEulerAngles = angles;
-            
+
             failure++;
             blockhit = false;
         }
@@ -135,22 +138,21 @@ public class ChainCon : MonoBehaviour
             scale.y = 0.0f;
             tr.localScale = scale;
             var angle = new Vector3();
-            //angle.z = 0.0f;
-            //player.transform.localEulerAngles = angle;
             playerCon.rb.constraints = RigidbodyConstraints.FreezeRotationZ;
             //playerCon.rb.constraints = RigidbodyConstraints.None;
             success++;
             chain = false;
             hitflag = false;
-            
+            playerCon.ground = false;
+            playerCon.jump = true;
         }
-        if(chain == false)
+        if (chain == false)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotationX |
 RigidbodyConstraints.FreezeRotationY;
             //rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
-        if(chain == true)
+        if (chain == true)
         {
             rb.constraints = RigidbodyConstraints.None;
         }
@@ -166,14 +168,14 @@ RigidbodyConstraints.FreezeRotationY;
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Object"&&click ==true)
+        if (collision.gameObject.tag == "Object" && click == true)
         {
             hitflag = true;
         }
         if (collision.gameObject.name == "block(Clone)" && click == true)
         {
             blockhit = true;
-           // Debug.Log("ブロック");
+            // Debug.Log("ブロック");
         }
     }
 }

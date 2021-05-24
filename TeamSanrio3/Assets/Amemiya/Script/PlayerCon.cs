@@ -39,11 +39,11 @@ public class PlayerCon : MonoBehaviour
         speed = 0;
         float hori = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-        if(Input.GetAxis("Horizontal") > 0 )
+        if (Input.GetAxis("Horizontal") > 0)
         {
             playcon = true;
         }
-        if (chaincon.chain == false&& chaincon.click == false)
+        if (chaincon.chain == false && chaincon.click == false)
         {
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -58,11 +58,11 @@ public class PlayerCon : MonoBehaviour
                 scale.x = 1;
                 //transform.Translate(0.5f, 0.0f, 0.0f);
             }
-            if(playcon == true)
+            if (playcon == true)
             {
                 rb.velocity += new Vector3(0.4f * hori, 0.0f);
             }
-            if(playcon == true&&jump == false)
+            if (playcon == true && jump == false)
             {
                 rb.velocity += new Vector3(0.0f, 3.0f * vert);
                 jump = true;
@@ -73,14 +73,14 @@ public class PlayerCon : MonoBehaviour
         }
         if (chaincon.chain == true)
         {
-            
+
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 rb.velocity += new Vector3(-0.4f, 0.0f);
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rb.velocity += new Vector3(0.4f, 0.0f);              
+                rb.velocity += new Vector3(0.4f, 0.0f);
             }
             if (playcon == true)
             {
@@ -91,7 +91,7 @@ public class PlayerCon : MonoBehaviour
                 rb.velocity += new Vector3(0.0f, 12.0f * vert);
                 jump = true;
             }
-            
+
             rb.constraints = RigidbodyConstraints.None;
             chainanime = true;
         }
@@ -101,32 +101,32 @@ public class PlayerCon : MonoBehaviour
             float y = rb.velocity.y;
             float z = 0.0f;
             rb.velocity = new Vector3(x, y, z);
-            
+
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jump == false || Input.GetKeyDown(KeyCode.W) && jump == false || Input.GetAxis("Vertical") > 0 &&jump == false)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jump == false || Input.GetKeyDown(KeyCode.W) && jump == false || Input.GetAxis("Vertical") > 0 && jump == false)
         {
             rb.velocity += new Vector3(0.0f, 12.0f);
             jump = true;
         }
-        if(!chaincon.chain)
+        if (!chaincon.chain)
         {
             angles = transform.localEulerAngles;
             angles.x = 0.0f;
             angles.y = 0.0f;
             transform.localEulerAngles = angles;
         }
-        if(IsDeadFlag == true)
+        if (IsDeadFlag == true)
         {
             rb.velocity = Vector3.zero;
         }
-        if(chaincon.chain == false && transform.localEulerAngles.z < 1 && transform.localEulerAngles.z > 0)
+        if (chaincon.chain == false && transform.localEulerAngles.z < 1 && transform.localEulerAngles.z > 0)
         {
             rotaz = true;
         }
         Debug.Log(transform.localEulerAngles.z);
         if (jump == true && rotaz == false && chaincon.chain != true)
         {
-            
+
             angles = transform.localEulerAngles;
             //float num = Mathf.Sign(angles.z);
             if (angles.z > 180)
@@ -141,7 +141,7 @@ public class PlayerCon : MonoBehaviour
                 transform.localEulerAngles = angles;
                 Debug.Log("b");
             }
-            
+
         }
         var pos = transform.localPosition;
         pos.z = -0.05f;
@@ -150,14 +150,14 @@ public class PlayerCon : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "goal")
+        if (collision.gameObject.name == "goal")
         {
             rb.velocity = Vector3.zero;
         }
     }
     void OnCollisionStay(Collision collision)
     {
-        if(tenzyohit == false)
+        if (tenzyohit == false)
         {
             if (collision.gameObject.tag == "Ground" && chaincon.chain == false)
             {
@@ -170,18 +170,18 @@ public class PlayerCon : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             }
 
-            if (collision.gameObject.tag == "Ground" && chaincon.chain == true)
-            {
-                angles = transform.localEulerAngles;
-                angles.x = 0.0f;
-                angles.y = 0.0f;
-                angles.z = 0.0f;
-                transform.localEulerAngles = angles;
-            }
+            //if (collision.gameObject.tag == "Ground" && chaincon.chain == true)
+            //{
+            //    angles = transform.localEulerAngles;
+            //    angles.x = 0.0f;
+            //    angles.y = 0.0f;
+            //    angles.z = 0.0f;
+            //    transform.localEulerAngles = angles;
+            //}
         }
         if (collision.gameObject.name == "tenzyo(Clone)")
         {
-            Debug.Log("atttt");
+            //Debug.Log("atttt");
             tenzyohit = true;
             //rb.constraints = RigidbodyConstraints.None;
         }
@@ -192,7 +192,7 @@ public class PlayerCon : MonoBehaviour
     }
     void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" && chaincon.chain == false)
         {
             jump = true;
             ground = false;
