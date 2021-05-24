@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - enemy
+  - Ground
+  - ChainObject
+  - Object
+  - Leg
+  - Enemy
+  - Enemy2
+  - ElectricFloor
+  - needle
+  - tenzyo
+  - water
+  - irairastick
+  - JumpPAD
+  - EnmeyBlock
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ChainObject
+  - Chain
+  - Enemy
+  - Enemy2
+  - Player
+  - Object
+  - EnemyBlock
+  - electirclBlock
+  - target
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: target
+    uniqueID: 1628384071
+    locked: 0

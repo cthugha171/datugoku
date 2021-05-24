@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406ab758c9ebea94996ef9503e3c51fe, type: 3}
+  m_Name: Mapchipset
+  m_EditorClassIdentifier: 
+  space: {fileID: 7268443454245493530, guid: e34a56be94bad1a4599fb90eacc4b314, type: 3}
+  field: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  fukku: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  hikkake: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  dontEnter: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be,
+    type: 3}
+  wana: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  player: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  start: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}
+  enemy: {fileID: 8443045786675054387, guid: bb7a6bc440d269b409a7d7300f9cd4be, type: 3}

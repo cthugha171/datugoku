@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 406ab758c9ebea94996ef9503e3c51fe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - space: {fileID: 689541311726554367, guid: 3b7f9e841c1413e43a90016482dad3b1, type: 3}
+  - field: {fileID: 6632863169455019789, guid: af3d3b1f7144d684d91fe19acf2925b9, type: 3}
+  - fukku: {fileID: 4147699826262662591, guid: 33a1a80e4358b1740a26eaa5780be57b, type: 3}
+  - hikkake: {fileID: 689541311726554367, guid: 3b7f9e841c1413e43a90016482dad3b1,
+      type: 3}
+  - dontEnter: {fileID: 689541311726554367, guid: 3b7f9e841c1413e43a90016482dad3b1,
+      type: 3}
+  - wana: {fileID: 713757276341249771, guid: 6a46c502512bd41428ff49254a1723b1, type: 3}
+  - player: {fileID: 689541311726554367, guid: 3b7f9e841c1413e43a90016482dad3b1, type: 3}
+  - start: {fileID: 4147699826262662591, guid: 33a1a80e4358b1740a26eaa5780be57b, type: 3}
+  - enemy: {fileID: 713757276341249771, guid: 6a46c502512bd41428ff49254a1723b1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
