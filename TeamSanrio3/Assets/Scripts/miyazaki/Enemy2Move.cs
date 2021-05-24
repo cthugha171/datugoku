@@ -7,7 +7,7 @@ public class Enemy2Move : MonoBehaviour
 {
     private GameObject player;
     PlayerCon playerCon;
-    Animator animator;
+    //Animator animator;
     //private SoundManager soundManager;
     [SerializeField, Header("移動スピード")]
     float TargetOnSpeed = 2f;
@@ -17,7 +17,7 @@ public class Enemy2Move : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerCon = FindObjectOfType<PlayerCon>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         //サウンドマネージャーをアタッチ
         //soundManager = FindObjectOfType<SoundManager>();
     }
@@ -30,7 +30,7 @@ public class Enemy2Move : MonoBehaviour
             return;
         }
         Move();
-        animator.SetFloat("Speed", 1.0f);
+        //animator.SetFloat("Speed", 1.0f);
     }
      void Move()
     {
