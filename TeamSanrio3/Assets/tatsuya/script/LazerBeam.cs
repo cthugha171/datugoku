@@ -60,19 +60,15 @@ public class LazerBeam : MonoBehaviour
         {
             hitPos = hit.point;
             line.SetPosition(1, hitPos);
-            //Debug.Log(hitPos);
-            //Debug.Log(isHit);
             if (hit.collider.tag=="Player")
             {
                 isHit = true;
-               //Debug.Log(isHit);
             }
         }
         else
         {
             line.SetPosition(1, senser.transform.position);
         }
-        Debug.DrawRay(ray.origin, ray.direction * 10, Color.black, 5);
     }
 
     void SpawnEnemy()
@@ -89,11 +85,9 @@ public class LazerBeam : MonoBehaviour
                     numberOfSpawns++;
                 }
             }
-            Debug.Log(count % 60);
             if (numberOfSpawns == appear)
             {
                 isHit = false;
-               //Debug.Log(count / 60 == second);
             }
         }
         

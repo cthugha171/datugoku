@@ -14,7 +14,6 @@ public class needle : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player.IsDeadFlag);
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,7 +21,6 @@ public class needle : MonoBehaviour
         if(other.gameObject.tag==playerTag)
         {
             player.IsDeadFlag = true;
-            Debug.Log(player.IsDeadFlag);
         }
     }
 }
