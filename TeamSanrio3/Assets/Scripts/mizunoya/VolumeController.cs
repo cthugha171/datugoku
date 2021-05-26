@@ -15,12 +15,10 @@ public class VolumeController : MonoBehaviour
     [SerializeField] private VolumeType volumeType = 0;
 
     private Slider slider;
-    private SoundManager soundManager;
 
     private void Start()
     {
         slider = GetComponent<Slider>();
-        soundManager = FindObjectOfType<SoundManager>();
     }
 
     public void OnValueChanged()
@@ -28,13 +26,13 @@ public class VolumeController : MonoBehaviour
         switch(volumeType)
         {
             case VolumeType.MASTER:
-                soundManager.Volume = slider.value;
+                SoundManager.Instance.Volume = slider.value;
                 break;
             case VolumeType.BGM:
-                soundManager.BgmVolume = slider.value;
+                SoundManager.Instance.BgmVolume = slider.value;
                 break;
             case VolumeType.SE:
-                soundManager.SeVolume = slider.value;
+                SoundManager.Instance.SeVolume = slider.value;
                 break;
         }
     }
