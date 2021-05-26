@@ -16,6 +16,8 @@ public class Fade : MonoBehaviour
     private PlayerCon player;
     private Goal goal;
     private bool isLoadScene = false;
+    private PracticeBool practice;
+    private StageSelectBool stageSelect;
 
     private void Start()
     {
@@ -27,10 +29,35 @@ public class Fade : MonoBehaviour
         sceneChange = FindObjectOfType<SceneChange>();
         player = FindObjectOfType<PlayerCon>();
         goal = FindObjectOfType<Goal>();
+        practice = FindObjectOfType<PracticeBool>();
+        stageSelect = FindObjectOfType<StageSelectBool>();
     }
 
     private void Update()
     {
+        if (SceneSave.Instance.IsNowScene == "Title")
+        {
+            if (practice.IsColObj)
+            {
+                StartFadeOut();
+
+                if (isLoadScene)
+                {
+                    sceneChange.ChangeScene("tutorial");
+                }
+            }
+
+            if (stageSelect.IsColObj)
+            {
+                StartFadeOut();
+
+                if (isLoadScene)
+                {
+                    sceneChange.ChangeScene("StageSelect");
+                }
+            }
+        }
+
         if (SceneSave.Instance.IsNowScene.Contains("Stage"))
         {
             if (player.IsDeadFlag)
@@ -67,7 +94,6 @@ public class Fade : MonoBehaviour
         SetAlpha();
         if (alfa <= 0)
         {
-            //isFadeIn = false;
             fadePanelImage.enabled = false;//パネルの表示をオフにする
             isLoadScene = true;
         }
@@ -87,7 +113,6 @@ public class Fade : MonoBehaviour
         SetAlpha();
         if (alfa >= 1)
         {
-            //isFadeOut = false;
             isLoadScene = true;
         }
     }
