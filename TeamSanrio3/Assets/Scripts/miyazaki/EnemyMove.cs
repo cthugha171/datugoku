@@ -6,19 +6,23 @@ using UnityEngine.SceneManagement;
 public class EnemyMove : MonoBehaviour
 {
     private GameObject player;
+    //参照オブジェ
     public GameObject enemy2;
     public GameObject onTargetUI;
+
     private int count = 0;
-    private bool isStop = true;
+
     [SerializeField]
     private float countTime;
     private float time;
+
     [SerializeField]
     private float Interval;
     PlayerCon playerCon;
     Vector2 rot;
     private Vector3 velocity;
     private Rigidbody rb;
+
     [SerializeField, Header("巡回する場所")]
     private Transform[] patrolPoint;
     [SerializeField, Header("生成する場所")]
@@ -26,13 +30,18 @@ public class EnemyMove : MonoBehaviour
     [SerializeField, Header("移動スピード")]
     float MoveSpeed;
     [SerializeField, Header("移動スピード")]
+
     float TargetOnSpeed = 2f;
+
     private int currentPoint = 0;
+
     bool OnTarget = false;
     bool TargetOFF = true;
     bool onSound = false;
+
     public bool Anime = false;
     public bool isFound = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +69,7 @@ public class EnemyMove : MonoBehaviour
     public void Move()
     {
         Vector3 pv = player.transform.position;
+
         Vector3 ev = transform.position;
 
         float p_vX = pv.x - ev.x;
@@ -68,6 +78,7 @@ public class EnemyMove : MonoBehaviour
         float vx = 0f;
         float vy = 0f;
 
+        //ステージの巡回処理
         if (TargetOFF)
         {
             Anime = true;
@@ -76,7 +87,11 @@ public class EnemyMove : MonoBehaviour
 
             var vec = patrolPoint[currentPoint].position - transform.position;
 
+            //y軸固定
             vec.y = 0;
+
+            //z軸を固定
+            vec.z = 0;
 
             transform.position += vec.normalized * MoveSpeed * Time.deltaTime;
 
@@ -84,7 +99,6 @@ public class EnemyMove : MonoBehaviour
             if (vec.magnitude < 0.1f)
             {
                 currentPoint = (currentPoint + 1) % 2;
-
             }
 
             // スケール値取り出し
@@ -101,8 +115,6 @@ public class EnemyMove : MonoBehaviour
             }
             // 代入し直す
             transform.localScale = scale;
-
-
         }
 
         if (OnTarget)
@@ -114,6 +126,7 @@ public class EnemyMove : MonoBehaviour
             {
                 vx = -TargetOnSpeed;
             }
+            //加算した結果がプラスであればXは加算処理
             else
             {
                 vx = TargetOnSpeed;
@@ -143,20 +156,16 @@ public class EnemyMove : MonoBehaviour
                 for (int i = 0; i < instantiate.Length; i++)
                 {
                     Instantiate(enemy2, new Vector3(instantiate[i].position.x, instantiate[i].position.y, instantiate[i].position.z), Quaternion.identity);
-                    Debug.Log("いぬ");
                 }
             }   
-            
-
         }
-
-
     }
+    //カメラに映っているときだけ足音が聞こえるように
     void OnWillRenderObject()
-
     {
 
 #if UNITY_EDITOR
+
         time += Time.deltaTime;
         if (Camera.current.name != "SceneCamera" && Camera.current.name != "Preview Camera")
 #endif
@@ -170,25 +179,32 @@ public class EnemyMove : MonoBehaviour
         }
 
     }
-    //プレイヤーが検知エリアに入ったら検知フラグをtrueにする
+    //検知エリアに入っとき
     private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             isFound = true;
+
             onTargetUI.SetActive(true);
-            //Debug.Log("発見");
+
             OnTarget = true;
+
             TargetOFF = false;
+
             if (!onSound)
             {
+
                 onSound = true;
+
                 //SE再生
                 SoundManager.Instance.PlaySeByName("発見SE");
+
             }
         }
 
     }
+    //検知から外れたとき
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -196,16 +212,17 @@ public class EnemyMove : MonoBehaviour
             onSound = false;
             OnTarget = false;
             TargetOFF = true;
+
             onTargetUI.SetActive(false);
             count = 0;
         }
     }
+    //当たり判定に触れたとき
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             playerCon.IsDeadFlag = true;
-            Debug.Log(playerCon.IsDeadFlag);
         }
     }
 }
