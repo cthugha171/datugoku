@@ -94,6 +94,8 @@ public class PlayerCon : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints.None;
             chainanime = true;
+            ground = false;
+
         }
         if (chaincon.click && ground == true)
         {
