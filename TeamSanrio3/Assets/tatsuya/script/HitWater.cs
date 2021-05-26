@@ -35,7 +35,6 @@ public class HitWater : MonoBehaviour
         if (other.gameObject.tag == playerTag&&isElectric==true)
         {
             player.IsDeadFlag = true;
-            Debug.Log(player.IsDeadFlag);
         }
     }
 }
