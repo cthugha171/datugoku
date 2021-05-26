@@ -26,7 +26,7 @@ public class Switch: MonoBehaviour
     {
         if (other.gameObject.tag == plTag)
         {
-            preSet = !preSet;
+            preSet = false;
             animator.SetBool("switching", preSet);
             SoundManager.Instance.PlaySeByName("ボタンOBJを押したとき");
             Laser.SetActive(preSet);
