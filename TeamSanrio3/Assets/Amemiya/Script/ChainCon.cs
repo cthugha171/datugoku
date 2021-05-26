@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChainCon : MonoBehaviour
 {
     public float angle = 0.0f;
-    Vector3 scale = new Vector3(20f, 100.0f, 20f);
+    Vector3 scale = new Vector3(0.0f, 0.0f, 0.0f);
     public Vector3 angles = new Vector3(0.0f, 0.0f, 0.0f);
     Vector3 direction;
     Vector3 targetpos;
@@ -89,7 +89,9 @@ public class ChainCon : MonoBehaviour
             angles.z = angle - 90;
             tr.localEulerAngles = angles;
             tr.localScale = scale;
-            scale.y += 1.5f;
+            scale.x = 20.0f;
+            scale.z = 20.0f;
+            scale.y += 1.2f;
             click = true;
 
 
@@ -120,7 +122,9 @@ public class ChainCon : MonoBehaviour
         //鎖が当たってないときに鎖の角度と伸縮をリセット
         if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false || hitflag == false && scale.y > 50.0f)
         {
+            scale.x = 0.0f;
             scale.y = 0.0f;
+            scale.z = 0.0f;
             tr.localScale = scale;
             var angles = tr.localEulerAngles;
             angles.x = 0.0f;
@@ -134,7 +138,9 @@ public class ChainCon : MonoBehaviour
         //鎖当たっている時の鎖解除と鎖の伸縮をリセット
         if (Input.GetMouseButtonDown(1) && hitflag == true || Input.GetButtonDown("Action2") && hitflag == true)
         {
+            scale.x = 0.0f;
             scale.y = 0.0f;
+            scale.z = 0.0f;
             tr.localScale = scale;
             var angle = new Vector3();
             playerCon.rb.constraints = RigidbodyConstraints.FreezeRotationZ;
@@ -174,14 +180,16 @@ RigidbodyConstraints.FreezeRotationY;
         if (collision.gameObject.name == "block(Clone)" && click == true && chain == false && hitflag == false)
         {
             blockhit = true;
+            scale.x = 0.0f;
             scale.y = 0.0f;
+            scale.z = 0.0f;
             tr.localScale = scale;
             var angles = tr.localEulerAngles;
             angles.x = 0.0f;
             angles.y = 0.0f;
             angles.z = 0.0f;
             tr.localEulerAngles = angles;
-
+            blockhit = false;
             // Debug.Log("ブロック");
         }
     }
