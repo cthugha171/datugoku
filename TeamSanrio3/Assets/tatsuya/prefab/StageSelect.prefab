@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 192069141771782705}
   - component: {fileID: 9219250392717602823}
   - component: {fileID: 3228467447172156670}
+  - component: {fileID: 8708696328325566770}
   m_Layer: 0
   m_Name: StageSelect
   m_TagString: Untagged
@@ -80,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8708696328325566770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814834779015739426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02, z: 0.04}
+  m_Center: {x: 0, y: 0, z: -0.0049999994}
 --- !u!1 &5174892240639702194
 GameObject:
   m_ObjectHideFlags: 0
