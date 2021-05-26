@@ -24,7 +24,7 @@ public class Switch: MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == plTag)
+        if (other.gameObject.tag == plTag&&preSet==false)
         {
             preSet = false;
             animator.SetBool("switching", preSet);
@@ -35,6 +35,7 @@ public class Switch: MonoBehaviour
         {
             collider.center = colCenterOn;
             collider.size = colSizeOn;
+
         }
         else
         {
