@@ -13,6 +13,7 @@ public class Switch: MonoBehaviour
     [SerializeField] private Vector3 colCenterOn;
     [SerializeField] private Vector3 colCenterOff;
 
+
     //設定したゲームオブジェクトのアクティブ設定と同じにする
     [SerializeField] private bool preSet = true;
 
@@ -27,6 +28,7 @@ public class Switch: MonoBehaviour
         {
             preSet = !preSet;
             animator.SetBool("switching", preSet);
+            SoundManager.Instance.PlaySeByName("ボタンOBJを押したとき");
             Laser.SetActive(preSet);
         }
         if (preSet==false)
