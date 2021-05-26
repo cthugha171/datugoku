@@ -7,8 +7,6 @@ public class Fade : MonoBehaviour
 {
     [SerializeField] private float fadeSpeed = 0.0f;//フェード時間
 
-    //public bool isFadeOut = false;//フェードアウト
-    //public bool isFadeIn = false;//フェードイン
     public string NextChangeSceneName;//次のシーンの名前
 
     private float red, green, blue, alfa;//パネルの色、透明度
