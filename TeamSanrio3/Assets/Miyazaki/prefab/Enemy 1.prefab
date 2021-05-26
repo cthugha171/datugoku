@@ -115,7 +115,7 @@ MonoBehaviour:
   enemy2: {fileID: 7271435749880823628, guid: a892e46819de06948bfbc7100eb4161c, type: 3}
   onTargetUI: {fileID: 6711923342425405784}
   countTime: 0
-  Interval: 2
+  Interval: 0.7
   patrolPoint:
   - {fileID: 0}
   - {fileID: 0}
