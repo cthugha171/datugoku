@@ -23,4 +23,12 @@ public class VolumeActiv : MonoBehaviour
         VolumeUIPrefab.SetActive(false);
         isVolume = true;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            isVolume = true;
+        }
+    }
 }
