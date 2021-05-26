@@ -118,8 +118,7 @@ public class ChainCon : MonoBehaviour
             soundManager.PlaySeByName("手錠がひっかる音");
         }
         //鎖が当たってないときに鎖の角度と伸縮をリセット
-        if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false
-            || hitflag == false && blockhit == true || hitflag == false && scale.y > 50.0f)
+        if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false || hitflag == false && scale.y > 50.0f)
         {
             scale.y = 0.0f;
             tr.localScale = scale;
@@ -130,7 +129,7 @@ public class ChainCon : MonoBehaviour
             tr.localEulerAngles = angles;
 
             failure++;
-            blockhit = false;
+            
         }
         //鎖当たっている時の鎖解除と鎖の伸縮をリセット
         if (Input.GetMouseButtonDown(1) && hitflag == true || Input.GetButtonDown("Action2") && hitflag == true)
@@ -172,9 +171,17 @@ RigidbodyConstraints.FreezeRotationY;
         {
             hitflag = true;
         }
-        if (collision.gameObject.name == "block(Clone)" && click == true)
+        if (collision.gameObject.name == "block(Clone)" && click == true && chain == false && hitflag == false)
         {
             blockhit = true;
+            scale.y = 0.0f;
+            tr.localScale = scale;
+            var angles = tr.localEulerAngles;
+            angles.x = 0.0f;
+            angles.y = 0.0f;
+            angles.z = 0.0f;
+            tr.localEulerAngles = angles;
+
             // Debug.Log("ブロック");
         }
     }
