@@ -17,6 +17,7 @@ public class StageSelectBool : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isColObj = true;
+            Debug.Log("愉快");
         }
     }
 }

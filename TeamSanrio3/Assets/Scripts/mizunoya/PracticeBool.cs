@@ -17,6 +17,7 @@ public class PracticeBool : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             isColObj = true;
+            Debug.Log("箱");
         }
     }
 }

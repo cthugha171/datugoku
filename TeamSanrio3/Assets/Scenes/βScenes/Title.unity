@@ -1996,12 +1996,12 @@ PrefabInstance:
     - target: {fileID: 5605627162515893733, guid: d4f977ca8dded2d4abdc7294002e7acf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 5605627162515893733, guid: d4f977ca8dded2d4abdc7294002e7acf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 5605627162515893733, guid: d4f977ca8dded2d4abdc7294002e7acf,
         type: 3}
@@ -10493,6 +10493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba21711b4258e94797b278f6eada0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeUIPrefab: {fileID: 33198818}
 --- !u!1 &592827766
 GameObject:
   m_ObjectHideFlags: 0
@@ -33928,6 +33929,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2329073877543838662, guid: 1bf3b539e6bed3d41bbe76629eebac5e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6013261304889999590, guid: 1bf3b539e6bed3d41bbe76629eebac5e,
         type: 3}
       propertyPath: m_LocalPosition.y
