@@ -24,7 +24,7 @@ public class Switch: MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == plTag&&preSet==false)
+        if (other.gameObject.tag == plTag&&preSet==true)
         {
             preSet = false;
             animator.SetBool("switching", preSet);
