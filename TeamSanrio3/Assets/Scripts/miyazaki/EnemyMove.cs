@@ -59,12 +59,12 @@ public class EnemyMove : MonoBehaviour
         {
             return;
         }
-        Move();
         if (playerCon.IsDeadFlag)
         {
             TargetOFF = false;
             OnTarget = false;
         }
+        Move();
     }
     public void Move()
     {
