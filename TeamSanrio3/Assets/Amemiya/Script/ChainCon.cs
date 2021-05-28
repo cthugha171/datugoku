@@ -144,9 +144,8 @@ public class ChainCon : MonoBehaviour
                 scale.y = 0.0f;
                 scale.z = 0.0f;
                 tr.localScale = scale;
-                var angle = new Vector3();
                 playerCon.rb.constraints = RigidbodyConstraints.FreezeRotationZ;
-                //playerCon.rb.constraints = RigidbodyConstraints.None;
+                
                 success++;
                 chain = false;
                 hitflag = false;
@@ -164,7 +163,13 @@ public class ChainCon : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.None;
             }
         }
-        
+        if(playerCon.IsDeadFlag == true)
+        {
+            scale.x = 0.0f;
+            scale.y = 0.0f;
+            scale.z = 0.0f;
+            tr.localScale = scale;
+        }
     }
 
     public float GetAim(Vector2 from, Vector2 to)
