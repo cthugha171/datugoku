@@ -18,8 +18,7 @@ public class EnemyAnime : MonoBehaviour
     {
         if (Emove.Anime == true)
         {
-            animator.SetFloat("walkspeed", 1.0f);
-            Debug.Log(Emove.Anime);
+            animator.SetFloat("walkspeed", 1.0f);;
         }
 
     }
