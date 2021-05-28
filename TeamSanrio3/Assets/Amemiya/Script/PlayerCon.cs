@@ -26,7 +26,6 @@ public class PlayerCon : MonoBehaviour
     }
     void Start()
     {
-        //rb = gameObject.GetComponent<Rigidbody>();
         chaincon = chain.GetComponent<ChainCon>();
         fx = gameObject.GetComponent<FixedJoint>();
     }
@@ -48,15 +47,13 @@ public class PlayerCon : MonoBehaviour
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                rb.velocity += new Vector3(-0.25f, 0.0f);
+                rb.velocity += new Vector3(-0.2f, 0.0f);
                 scale.x = -1;
-                // transform.Translate(-0.5f, 0.0f, 0.0f);
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rb.velocity += new Vector3(0.25f, 0.0f);
+                rb.velocity += new Vector3(0.2f, 0.0f);
                 scale.x = 1;
-                //transform.Translate(0.5f, 0.0f, 0.0f);
             }
             if (playcon == true)
             {
@@ -135,13 +132,11 @@ public class PlayerCon : MonoBehaviour
             {
                 angles.z++;
                 transform.localEulerAngles = angles;
-                //Debug.Log("a");
             }
             else
             {
                 angles.z--;
                 transform.localEulerAngles = angles;
-                Debug.Log("b");
             }
 
         }
@@ -171,19 +166,9 @@ public class PlayerCon : MonoBehaviour
                 transform.localEulerAngles = angles;
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
             }
-
-            //if (collision.gameObject.tag == "Ground" && chaincon.chain == true)
-            //{
-            //    angles = transform.localEulerAngles;
-            //    angles.x = 0.0f;
-            //    angles.y = 0.0f;
-            //    angles.z = 0.0f;
-            //    transform.localEulerAngles = angles;
-            //}
         }
         if (collision.gameObject.name == "tenzyo(Clone)")
         {
-            //Debug.Log("atttt");
             tenzyohit = true;
             //rb.constraints = RigidbodyConstraints.None;
         }
