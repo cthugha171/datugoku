@@ -42,7 +42,7 @@ public class PlayerCon : MonoBehaviour
         {
             playcon = true;
         }
-        if (chaincon.chain == false && chaincon.click == false)
+        if (chaincon.chain == false && chaincon.click == false&&isDeadFlag == false)
         {
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
