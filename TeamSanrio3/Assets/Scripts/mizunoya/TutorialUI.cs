@@ -5,12 +5,14 @@ using UnityEngine;
 public class TutorialUI : MonoBehaviour
 {
     private bool isActiv = false;
+    private ChainCon chainCon;
 
     [SerializeField] private GameObject TutorialPrafab;
 
     private void Start()
     {
         TutorialPrafab.SetActive(false);
+        chainCon = FindObjectOfType<ChainCon>();
     }
 
     public void TrueActive()
@@ -25,7 +27,7 @@ public class TutorialUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !chainCon.chain)
         {
             TrueActive();
         }
