@@ -9,7 +9,6 @@ public class GameEnd : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape) || Input.GetButtonDown("BACK"))
         {
-            Debug.Log("終わり");
             End();
         }
     }

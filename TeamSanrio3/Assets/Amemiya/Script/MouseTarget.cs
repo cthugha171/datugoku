@@ -52,12 +52,9 @@ public class MouseTarget : MonoBehaviour
             {
                 oldpos = gameObject.transform.position;
                 gameObject.transform.position += new Vector3(hori * 0.1f, vert * 0.1f, 0.0f);
-
-                Debug.Log("いる");
             }
             else
             {
-                Debug.Log("出た");
                 gameObject.transform.position = oldpos;
             }
 
