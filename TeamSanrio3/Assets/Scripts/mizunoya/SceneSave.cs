@@ -32,8 +32,6 @@ public class SceneSave : SingletonMonoBehaviour<SceneSave>
 
     public void NowScene()
     {
-        Debug.Log(nowScene);
-
         nowScene = SceneManager.GetActiveScene().name;
 
         if (nowScene.Contains("Stage"))

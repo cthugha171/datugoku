@@ -27,9 +27,6 @@ public class CameraMove : MonoBehaviour
             return;
         }
         position = new Vector3(0, cameraPosY, posZ);
-
-        Debug.Log("Screen Width" + Screen.width);
-        Debug.Log("Screen Height" + Screen.height);
     }
 
     // Update is called once per frame
@@ -72,7 +69,6 @@ public class CameraMove : MonoBehaviour
         {
             movecamPosX = lastlimitcameraPosX;
         }
-        //Debug.Log(movecamPosX);
         transform.position = new Vector3(movecamPosX, position.y, position.z);
     }
 }

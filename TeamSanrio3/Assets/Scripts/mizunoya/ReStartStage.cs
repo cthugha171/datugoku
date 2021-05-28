@@ -12,7 +12,6 @@ public class ReStartStage : MonoBehaviour
     {
         sceneSave = FindObjectOfType<SceneSave>();
         sceneChange = FindObjectOfType<SceneChange>();
-        Debug.Log(restartScene);
         restartScene = sceneSave.BeforScene;
         sceneChange.ChangeScene(restartScene);
     }
