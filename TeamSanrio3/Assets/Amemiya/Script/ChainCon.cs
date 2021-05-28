@@ -22,7 +22,7 @@ public class ChainCon : MonoBehaviour
     private float time;
     public Rigidbody rb;
     Transform tr;
-    private SoundManager soundManager;
+    //private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,7 @@ public class ChainCon : MonoBehaviour
         playerCon = player.gameObject.GetComponent<PlayerCon>();
         rb = gameObject.GetComponent<Rigidbody>();
         tr = gameObject.GetComponent<Transform>();
-        soundManager = FindObjectOfType<SoundManager>();
+        //soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Update()
@@ -98,7 +98,7 @@ public class ChainCon : MonoBehaviour
 
             if (time > 0.5f)
             {
-                soundManager.PlaySeByName("手錠を伸ばす");
+                SoundManager.Instance.PlaySeByName("手錠を伸ばす");
                 time = 0;
             }
         }
@@ -117,10 +117,10 @@ public class ChainCon : MonoBehaviour
             scale.y = scale.y / 1.5f;
             tr.localScale = scale;
             chain = true;
-            soundManager.PlaySeByName("手錠がひっかる音");
+            SoundManager.Instance.PlaySeByName("手錠がひっかる音");
         }
         //鎖が当たってないときに鎖の角度と伸縮をリセット
-        if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false || hitflag == false && scale.y > 50.0f)
+        if (Input.GetMouseButtonUp(0) && hitflag == false || Input.GetButtonUp("Action") && hitflag == false || hitflag == false && scale.y > 35.0f)
         {
             scale.x = 0.0f;
             scale.y = 0.0f;

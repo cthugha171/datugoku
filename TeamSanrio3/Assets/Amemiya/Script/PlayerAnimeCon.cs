@@ -7,14 +7,14 @@ public class PlayerAnimeCon : MonoBehaviour
     private Animator animator;
     public Rigidbody rb;
     PlayerCon playercon;
-    private SoundManager soundManager;
+    //private SoundManager soundManager;
     private float time;
     // Start is called before the first frame update
     void Start()
     {
         playercon = gameObject.GetComponent<PlayerCon>();
         animator = GetComponent<Animator>();
-        soundManager = FindObjectOfType<SoundManager>();
+        //soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
