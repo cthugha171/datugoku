@@ -58,6 +58,11 @@ public class PlayerCon : MonoBehaviour
             if (playcon == true)
             {
                 rb.velocity += new Vector3(0.4f * hori, 0.0f);
+                
+            }
+            if(hori == 1||hori == -1)
+            {
+                scale.x = hori;
             }
             if (playcon == true && jump == false)
             {
@@ -73,11 +78,11 @@ public class PlayerCon : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                rb.velocity += new Vector3(-0.4f, 0.0f);
+                rb.velocity += new Vector3(-0.3f, 0.0f);
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rb.velocity += new Vector3(0.4f, 0.0f);
+                rb.velocity += new Vector3(0.3f, 0.0f);
             }
             if (playcon == true)
             {
@@ -122,7 +127,7 @@ public class PlayerCon : MonoBehaviour
         {
             rotaz = true;
         }
-        Debug.Log(transform.localEulerAngles.z);
+        //Debug.Log(transform.localEulerAngles.z);
         if (jump == true && rotaz == false && chaincon.chain != true)
         {
 
@@ -130,12 +135,12 @@ public class PlayerCon : MonoBehaviour
             //float num = Mathf.Sign(angles.z);
             if (angles.z > 180)
             {
-                angles.z++;
+                angles.z += 0.35f;
                 transform.localEulerAngles = angles;
             }
             else
             {
-                angles.z--;
+                angles.z-= 0.35f;
                 transform.localEulerAngles = angles;
             }
 
