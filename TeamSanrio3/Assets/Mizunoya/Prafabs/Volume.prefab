@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 7124127569403273924}
+    m_SelectOnDown: {fileID: 7124127569182615980}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 7124127567994528691}
   - component: {fileID: 7124127567994528692}
   - component: {fileID: 7124127567994528693}
+  - component: {fileID: 9170311049031874163}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -596,6 +597,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9170311049031874163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124127567994528694}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a080a89f3605541b680bdc0773ff08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliders:
+  - {fileID: 7124127569182615980}
+  - {fileID: 7124127569172878464}
+  - {fileID: 7124127569403273924}
+  firstSelectUI: 0
 --- !u!1 &7124127568093733365
 GameObject:
   m_ObjectHideFlags: 0
