@@ -14,7 +14,6 @@ public class PlayerAnimeCon : MonoBehaviour
     {
         playercon = gameObject.GetComponent<PlayerCon>();
         animator = GetComponent<Animator>();
-        //soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
