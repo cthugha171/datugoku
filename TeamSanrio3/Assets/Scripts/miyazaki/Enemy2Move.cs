@@ -7,6 +7,7 @@ public class Enemy2Move : MonoBehaviour
 {
     private GameObject player;
     PlayerCon playerCon;
+    private bool Targeton = true;
     //Animator animator;
     //private SoundManager soundManager;
     [SerializeField, Header("移動スピード")]
@@ -29,12 +30,16 @@ public class Enemy2Move : MonoBehaviour
         {
             return;
         }
+        if (playerCon.IsDeadFlag)
+        {
+            Targeton = false;
+        }
         Move();
         //animator.SetFloat("Speed", 1.0f);
     }
-     void Move()
+    void Move()
     {
-        
+
         Vector3 pv = player.transform.position;
         Vector3 ev = transform.position;
 
@@ -45,33 +50,34 @@ public class Enemy2Move : MonoBehaviour
         float vy = 0f;
 
         // 減算した結果がマイナスであればXは減算処理
-        if (p_vX < 0)
+        if (Targeton)
         {
-            vx = -TargetOnSpeed;
-        }
-        else
-        {
-            vx = TargetOnSpeed;
-        }
+            if (p_vX < 0)
+            {
+                vx = -TargetOnSpeed;
+            }
+            else
+            {
+                vx = TargetOnSpeed;
+            }
 
-        transform.Translate(vx / 50, vy / 50, 0);
-        Vector3 scale = transform.localScale;
-        if (vx > 0)
-        {
-            // 右方向に移動中
-            scale.x = -1; // そのまま（右向き）
+            transform.Translate(vx / 50, vy / 50, 0);
+            Vector3 scale = transform.localScale;
+            if (vx > 0)
+            {
+                // 右方向に移動中
+                scale.x = -1; // そのまま（右向き）
+            }
+            if (vx < 0)
+            {
+                // 左方向に移動中
+                scale.x = 1; // 反転する（左向き）
+            }
+            // 代入し直す
+            transform.localScale = scale;
         }
-        if (vx < 0)
-        {
-            // 左方向に移動中
-            scale.x = 1; // 反転する（左向き）
-        }
-        // 代入し直す
-        transform.localScale = scale;
-        if(playerCon.IsDeadFlag)
-        {
-            vx = 0;
-        }
+           
+
         Destroy(this.gameObject, 5.0f);
     }
     void OnWillRenderObject()
