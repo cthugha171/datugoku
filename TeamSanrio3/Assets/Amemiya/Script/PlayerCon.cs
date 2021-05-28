@@ -31,6 +31,7 @@ public class PlayerCon : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(rb.velocity);
         if (Mathf.Approximately(Time.timeScale, 0f))
         {
             return;
