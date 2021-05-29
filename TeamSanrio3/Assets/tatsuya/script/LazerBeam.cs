@@ -12,6 +12,7 @@ public class LazerBeam : MonoBehaviour
     [SerializeField] private Transform[] spawnpoint;
     [SerializeField] private int interval=240;
     [SerializeField] private int  appear=100;
+    [SerializeField] private string soundName="エマージェンシーSE";
 
     Vector3 hitPos;
     Vector3 tmpPos;
@@ -63,6 +64,7 @@ public class LazerBeam : MonoBehaviour
             if (hit.collider.tag=="Player")
             {
                 isHit = true;
+                SoundManager.Instance.PlaySeByName(soundName);
             }
         }
         else
