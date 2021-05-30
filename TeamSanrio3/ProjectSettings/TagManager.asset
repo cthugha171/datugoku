@@ -18,6 +18,7 @@ TagManager:
   - irairastick
   - JumpPAD
   - EnmeyBlock
+  - Goal
   layers:
   - Default
   - TransparentFX
