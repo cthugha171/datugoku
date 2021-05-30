@@ -42,12 +42,17 @@ public class PlayerAnimeCon : MonoBehaviour
         {
             animator.SetBool("HandFlag",false);
         }
-    }
-    void OnCollisionStay(Collision collision)
-    {
-        if(playercon.IsDeadFlag == true)
+        if (playercon.IsDeadFlag == true)
         {
             animator.SetTrigger("DeadTriger");
         }
+        if (playercon.goal == true)
+        {
+            animator.SetTrigger("GoalTriger");
+        }
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        
     }
 }

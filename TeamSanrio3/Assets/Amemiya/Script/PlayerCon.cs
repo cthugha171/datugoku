@@ -13,6 +13,7 @@ public class PlayerCon : MonoBehaviour
     public bool tenzyohit = false;
     public bool chainanime = false;
     public bool rotaz = false;
+    public bool goal = false;
     [SerializeField] private bool isDeadFlag;
     public Rigidbody rb;
     int speed;
@@ -163,10 +164,11 @@ public class PlayerCon : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "goal")
+        if (other.gameObject.tag == "Goal")
         {
+            goal = true;
             rb.velocity = Vector3.zero;
         }
     }
