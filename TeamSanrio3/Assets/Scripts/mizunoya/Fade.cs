@@ -19,6 +19,8 @@ public class Fade : MonoBehaviour
     private PracticeBool practice;
     private StageSelectBool stageSelect;
 
+    private bool isSound;
+
     private void Start()
     {
         fadePanelImage = GetComponent<Image>();
@@ -31,6 +33,7 @@ public class Fade : MonoBehaviour
         goal = FindObjectOfType<Goal>();
         practice = FindObjectOfType<PracticeBool>();
         stageSelect = FindObjectOfType<StageSelectBool>();
+        isSound = false;
     }
 
     private void Update()
@@ -62,6 +65,11 @@ public class Fade : MonoBehaviour
         {
             if (player.IsDeadFlag)
             {
+                if (!isSound)
+                {
+                    SoundManager.Instance.PlaySeByName("プレイヤーが死んだとき");
+                    isSound = true;
+                }
                 StartFadeOut();
 
                 if (isLoadScene)

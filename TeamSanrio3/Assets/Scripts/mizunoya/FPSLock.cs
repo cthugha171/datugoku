@@ -10,4 +10,9 @@ public class FPSLock : MonoBehaviour
     {
         Application.targetFrameRate = FPS;
     }
+
+    private void Update()
+    {
+        Debug.Log("FPS:"+Application.targetFrameRate);
+    }
 }
