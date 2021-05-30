@@ -43,18 +43,16 @@ public class PlayerCon : MonoBehaviour
         {
             playcon = true;
         }
-        if (chaincon.chain == false && chaincon.click == false&&isDeadFlag == false)
+        if (chaincon.chain == false && chaincon.click == false&&isDeadFlag == false && jump == false)
         {
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 rb.velocity += new Vector3(-0.2f, 0.0f);
-                scale.x = -1;
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 rb.velocity += new Vector3(0.2f, 0.0f);
-                scale.x = 1;
             }
             if (playcon == true)
             {
@@ -70,9 +68,21 @@ public class PlayerCon : MonoBehaviour
                 rb.velocity += new Vector3(0.0f, 3.0f * vert);
                 jump = true;
             }
-            rotaz = false;
             gameObject.transform.localScale = scale;
             chainanime = false;
+        }
+        if (chaincon.chain == false && chaincon.click == false && isDeadFlag == false)
+        {
+            Vector3 scale = transform.localScale;
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                scale.x = -1;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                scale.x = 1;
+            }
+            gameObject.transform.localScale = scale;
         }
         if (chaincon.chain == true)
         {
@@ -120,36 +130,38 @@ public class PlayerCon : MonoBehaviour
             angles.y = 0.0f;
             transform.localEulerAngles = angles;
         }
+        if(jump == true&&chaincon.chain == false)
+        {
+            Invoke("RBFreez", 0.1f);
+        }
         if (IsDeadFlag == true)
         {
             rb.velocity = Vector3.zero;
         }
-        if (chaincon.chain == false && transform.localEulerAngles.z < 1 && transform.localEulerAngles.z > 0)
-        {
-            rotaz = true;
-        }
-        //Debug.Log(transform.localEulerAngles.z);
         if (jump == true && rotaz == false && chaincon.chain != true)
         {
 
             angles = transform.localEulerAngles;
-            //float num = Mathf.Sign(angles.z);
             if (angles.z > 180)
             {
-                angles.z += 0.35f;
+                angles.z += 0.5f;
                 transform.localEulerAngles = angles;
             }
             else
             {
-                angles.z-= 0.35f;
+                angles.z -= 0.5f;
                 transform.localEulerAngles = angles;
             }
 
         }
-        var pos = transform.localPosition;
-        pos.z = -0.05f;
-        transform.localPosition = pos;
-        angles = transform.localEulerAngles;
+        //var pos = transform.localPosition;
+        //pos.z = -0.05f;
+        //transform.localPosition = pos;
+        //angles = transform.localEulerAngles;
+    }
+    void RBFreez()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -178,10 +190,6 @@ public class PlayerCon : MonoBehaviour
             tenzyohit = true;
             //rb.constraints = RigidbodyConstraints.None;
         }
-        else
-        {
-            tenzyohit = false;
-        }
     }
     void OnCollisionExit(Collision collision)
     {
@@ -195,6 +203,10 @@ public class PlayerCon : MonoBehaviour
             angles.y = 0.0f;
             angles.z = 0.0f;
             transform.localEulerAngles = angles;
+        }
+        if (collision.gameObject.name == "tenzyo(Clone)")
+        {
+            tenzyohit = false;
         }
     }
 }

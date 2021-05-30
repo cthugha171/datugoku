@@ -166,8 +166,8 @@ FixedJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
-  m_MassScale: 0.3
-  m_ConnectedMassScale: 0.3
+  m_MassScale: 0.2
+  m_ConnectedMassScale: 0.2
 --- !u!114 &798327508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,12 +560,12 @@ PrefabInstance:
     - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}
       propertyPath: m_Interpolate
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}
       propertyPath: m_Drag
-      value: 0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9200542685313081544, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}

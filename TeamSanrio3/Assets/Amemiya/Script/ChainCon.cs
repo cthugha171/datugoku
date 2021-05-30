@@ -140,17 +140,19 @@ public class ChainCon : MonoBehaviour
             //鎖当たっている時の鎖解除と鎖の伸縮をリセット
             if (Input.GetMouseButtonDown(1) && hitflag == true || Input.GetButtonDown("Action2") && hitflag == true)
             {
+                //playerCon.rb.constraints = RigidbodyConstraints.FreezeRotationZ;
                 scale.x = 0.0f;
                 scale.y = 0.0f;
                 scale.z = 0.0f;
                 tr.localScale = scale;
-                playerCon.rb.constraints = RigidbodyConstraints.FreezeRotationZ;
                 
                 success++;
                 chain = false;
                 hitflag = false;
-                playerCon.ground = false;
+                //playerCon.ground = false;
                 playerCon.jump = true;
+                
+
             }
             if (chain == false)
             {
