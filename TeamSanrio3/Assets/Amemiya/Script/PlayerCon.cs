@@ -49,15 +49,15 @@ public class PlayerCon : MonoBehaviour
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                rb.velocity += new Vector3(-0.2f, 0.0f);
+                rb.velocity += new Vector3(-0.15f, 0.0f);
             }
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                rb.velocity += new Vector3(0.2f, 0.0f);
+                rb.velocity += new Vector3(0.15f, 0.0f);
             }
             if (playcon == true)
             {
-                rb.velocity += new Vector3(0.4f * hori, 0.0f);
+                rb.velocity += new Vector3(0.3f * hori, 0.0f);
                 
             }
             if(hori == 1||hori == -1)
