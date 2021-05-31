@@ -44,7 +44,7 @@ public class PlayerCon : MonoBehaviour
         {
             playcon = true;
         }
-        if (chaincon.chain == false && chaincon.click == false&&isDeadFlag == false && jump == false)
+        if (chaincon.chain == false && chaincon.click == false&&isDeadFlag == false && jump == false&&goal == false)
         {
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -72,7 +72,7 @@ public class PlayerCon : MonoBehaviour
             gameObject.transform.localScale = scale;
             chainanime = false;
         }
-        if (chaincon.chain == false && chaincon.click == false && isDeadFlag == false)
+        if (chaincon.chain == false && chaincon.click == false && isDeadFlag == false&&goal == false)
         {
             Vector3 scale = transform.localScale;
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
@@ -168,8 +168,8 @@ public class PlayerCon : MonoBehaviour
     {
         if (other.gameObject.tag == "Goal")
         {
-            goal = true;
             rb.velocity = Vector3.zero;
+            goal = true;
         }
     }
     void OnCollisionStay(Collision collision)
