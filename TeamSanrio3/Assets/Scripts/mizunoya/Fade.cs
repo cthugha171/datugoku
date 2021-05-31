@@ -74,6 +74,7 @@ public class Fade : MonoBehaviour
 
                 if (isLoadScene)
                 {
+                    SoundManager.Instance.StopSe();
                     sceneChange.ChangeScene("GameOver");
                 }
             }
@@ -84,6 +85,7 @@ public class Fade : MonoBehaviour
 
                 if (isLoadScene)
                 {
+                    SoundManager.Instance.StopSe();
                     sceneChange.ChangeScene("Clear");
                 }
             }
