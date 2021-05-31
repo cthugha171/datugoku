@@ -38,6 +38,11 @@ public class SceneSave : SingletonMonoBehaviour<SceneSave>
         {
             beforeScene = nowScene;
         }
+
+        if(nowScene == "tutorial")
+        {
+            beforeScene = nowScene;
+        }
     }
 
     public string GetBeforeScene()
