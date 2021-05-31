@@ -555,17 +555,22 @@ PrefabInstance:
     - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}
       propertyPath: m_Interpolate
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}
       propertyPath: m_Drag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085393630884285627, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9200542685313081544, guid: 09a806b1ee5d9a948a1d47bd813f28aa,
         type: 3}

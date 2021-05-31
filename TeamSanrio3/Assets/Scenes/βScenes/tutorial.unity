@@ -9634,6 +9634,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4588418471314697168, guid: a8147c9b17adc6e46bb716bda7facf67,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6128061399119437290, guid: a8147c9b17adc6e46bb716bda7facf67,
         type: 3}
       propertyPath: m_Enabled
@@ -38805,25 +38810,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 798327511, guid: d4f977ca8dded2d4abdc7294002e7acf, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2136652569420641479, guid: d4f977ca8dded2d4abdc7294002e7acf,
         type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 302423631}
-    - target: {fileID: 3737703376113648111, guid: d4f977ca8dded2d4abdc7294002e7acf,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3737703376113648111, guid: d4f977ca8dded2d4abdc7294002e7acf,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5605627162515893733, guid: d4f977ca8dded2d4abdc7294002e7acf,
         type: 3}
       propertyPath: m_LocalPosition.x
