@@ -7,12 +7,12 @@ public class LazerBeam : MonoBehaviour
     [SerializeField] private GameObject burrel;
     [SerializeField] private GameObject senser;
     [SerializeField] private LineRenderer line;
-    [SerializeField] private GameObject player;
     [SerializeField] private GameObject Enemy;
     [SerializeField] private Transform[] spawnpoint;
     [SerializeField] private int interval=240;
     [SerializeField] private int  appear=100;
     [SerializeField] private string soundName="エマージェンシーSE";
+    private PlayerCon player;
 
     Vector3 hitPos;
     Vector3 tmpPos;
@@ -35,6 +35,7 @@ public class LazerBeam : MonoBehaviour
     void Start()
     {
         line.startWidth = lineWidth;
+        player = FindObjectOfType<PlayerCon>();
     }
 
     // Update is called once per frame
@@ -77,7 +78,7 @@ public class LazerBeam : MonoBehaviour
     {
         count++;
 
-        if (isHit == true)
+        if (isHit == true&&player.IsDeadFlag==false)
         {
             if (count % interval == 0)
             {
